@@ -45,5 +45,10 @@ RSpec.describe "Deck" do
         end
     end
 
+    describe "#draw" do 
+        it "should draw the first card" do 
+            expect(deck.draw).not_to eq(deck)
+        end
+    end
 
 end
