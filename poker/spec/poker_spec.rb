@@ -3,6 +3,7 @@ require 'deck.rb'
 require 'game.rb'
 require 'hand.rb'
 require 'player.rb'
+require 'rspec'
 
 RSpec.describe "Card" do
     let(:card) {Card.new(6, "clubs")}
@@ -26,3 +27,24 @@ RSpec.describe "Card" do
     end
 end
 
+RSpec.describe "Deck" do
+    let(:deck) {Deck.new}
+    describe "#initialize" do
+        it "should have 52 cards" do
+            expect(deck.cards.length).to eq(52)
+        end
+
+        it "should not have duplicates" do
+            expect(deck.cards.uniq.length).to eq(52)
+        end
+    end
+
+    describe "#shuffle" do 
+        fake_deck = [1,2,3,4]
+        it "should mix the order of the cards" do 
+            expect(deck.shuffle).not_to eq(deck.sort)
+        end
+    end
+
+
+end
