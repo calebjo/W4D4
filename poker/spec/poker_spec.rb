@@ -40,9 +40,8 @@ RSpec.describe "Deck" do
     end
 
     describe "#shuffle" do 
-        fake_deck = [1,2,3,4]
         it "should mix the order of the cards" do 
-            expect(deck.shuffle).not_to eq(deck.sort)
+            expect(deck.shuffle!).not_to eq(deck)
         end
     end
 
