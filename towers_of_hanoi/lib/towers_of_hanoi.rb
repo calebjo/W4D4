@@ -16,20 +16,20 @@ class Hanoi
 
             puts "Select a start pile (1,2,3)"
             start_pile = gets.chomp.to_i
-
-            disc = nil
-            case start_pile 
-            when 1
-                disc = @pile1.pop
-            when 2
-                disc = @pile2.pop
-            when 3
-                disc = @pile3.pop
-            end
+            next if !self.valid_arg?(start_pile)
+                disc = nil
+                case start_pile 
+                when 1
+                    disc = @pile1.pop
+                when 2
+                    disc = @pile2.pop
+                when 3
+                    disc = @pile3.pop
+                end
 
             puts "Select an end pile (1,2,3)"
             end_pile = gets.chomp.to_i 
-
+            next if !self.valid_arg?(end_pile)
             case end_pile
             when 1
                 @pile1.push(disc)
